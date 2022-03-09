@@ -4,16 +4,16 @@ import pl.piotr.pizzaapplication.domain.model.OrderStatusType;
 
 import java.util.List;
 
-public class OrderUpdateDto {
+public class UpdateOrderDto {
     private OrderStatusType status;
     private List<PersonOrderDto> pizzas;
     private PersonOrderDto person;
 
-    public OrderUpdateDto() {
+    public UpdateOrderDto() {
 
     }
 
-    public OrderUpdateDto(OrderStatusType status, List<PersonOrderDto> pizzas, PersonOrderDto person) {
+    public UpdateOrderDto(OrderStatusType status, List<PersonOrderDto> pizzas, PersonOrderDto person) {
         this.status = status;
         this.pizzas = pizzas;
         this.person = person;
