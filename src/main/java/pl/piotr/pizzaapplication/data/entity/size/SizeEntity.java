@@ -4,6 +4,7 @@ import pl.piotr.pizzaapplication.data.entity.ordersize.OrderSizeEntity;
 import pl.piotr.pizzaapplication.data.entity.pizza.PizzaEntity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -19,10 +20,10 @@ public class SizeEntity {
     private String sizeType;
 
     @Column(name = "size_base")
-    private String priceBase;
+    private BigDecimal priceBase;
 
     @Column(name = "pizza_id")
-    private String pizzaId;
+    private Integer pizzaId;
 
     @OneToMany(mappedBy = "size")
     private Set<OrderSizeEntity> orderSizes;
@@ -31,4 +32,31 @@ public class SizeEntity {
     @JoinColumn(name = "pizza_id", insertable = false, updatable = false)
     private PizzaEntity pizza;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setSizeType(String sizeType) {
+        this.sizeType = sizeType;
+    }
+
+    public void setPriceBase(BigDecimal priceBase) {
+        this.priceBase = priceBase;
+    }
+
+    public void setPizzaId(Integer pizzaId) {
+        this.pizzaId = pizzaId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getSizeType() {
+        return sizeType;
+    }
+
+    public BigDecimal getPriceBase() {
+        return priceBase;
+    }
 }

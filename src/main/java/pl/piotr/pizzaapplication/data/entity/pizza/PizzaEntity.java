@@ -23,4 +23,8 @@ public class PizzaEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Integer getId() {
+        return id;
+    }
 }
