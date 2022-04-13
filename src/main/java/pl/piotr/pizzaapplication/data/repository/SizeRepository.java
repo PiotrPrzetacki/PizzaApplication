@@ -5,4 +5,5 @@ import pl.piotr.pizzaapplication.data.entity.size.SizeEntity;
 
 public interface SizeRepository extends JpaRepository<SizeEntity, Integer> {
 
+    void deleteAllByPizzaId(Integer pizzaId);
 }
