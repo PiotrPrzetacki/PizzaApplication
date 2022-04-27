@@ -15,7 +15,7 @@ public class OrderSizeEntity {
     private Integer id;
 
     @Column(name = "order_id")
-    private Integer order_id;
+    private Integer orderId;
 
     @Column(name = "size_id")
     private Integer sizeId;
@@ -30,4 +30,16 @@ public class OrderSizeEntity {
     @ManyToOne
     @JoinColumn(name = "size_id", insertable = false, updatable = false)
     private SizeEntity size;
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public void setSizeId(Integer sizeId) {
+        this.sizeId = sizeId;
+    }
+
+    public void setSizeCount(Integer sizeCount) {
+        this.sizeCount = sizeCount;
+    }
 }

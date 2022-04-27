@@ -3,6 +3,8 @@ package pl.piotr.pizzaapplication.remote.rest.api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.piotr.pizzaapplication.domain.model.OrderStatusType;
+import pl.piotr.pizzaapplication.domain.service.AddOrderService;
+import pl.piotr.pizzaapplication.domain.service.DeleteOrderService;
 import pl.piotr.pizzaapplication.remote.rest.dto.request.AddOrderDto;
 import pl.piotr.pizzaapplication.remote.rest.dto.request.UpdateOrderDto;
 import pl.piotr.pizzaapplication.remote.rest.dto.response.OrderCollectionDto;
@@ -16,10 +18,18 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 public class OrderController {
 
+    private final AddOrderService addOrderService;
+    private final DeleteOrderService deleteOrderService;
+
+    public OrderController(AddOrderService addOrderService, DeleteOrderService deleteOrderService) {
+        this.addOrderService = addOrderService;
+        this.deleteOrderService = deleteOrderService;
+    }
+
     @PostMapping
     public ResponseEntity<TokenDto> addOrder(@RequestBody AddOrderDto addOrderDto){
-
-        return ResponseEntity.ok(null);
+        TokenDto tokenDto = addOrderService.addOrder(addOrderDto);
+        return ResponseEntity.ok(tokenDto);
     }
 
     @GetMapping("/status/{token}")
@@ -43,7 +53,8 @@ public class OrderController {
     public ResponseEntity<OrderDto> updateOrder(@PathVariable("order-id") Integer orderId,
                                                 @RequestHeader("Access-Token") String token,
                                                 @RequestBody UpdateOrderDto updateOrderDto){
-        return ResponseEntity.ok(null);
+        deleteOrderService.deleteOrder(orderId, token);
+        return ResponseEntity.ok().build();
     }
 
 }

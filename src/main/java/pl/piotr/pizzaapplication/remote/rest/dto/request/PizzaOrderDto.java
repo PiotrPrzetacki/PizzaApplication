@@ -31,7 +31,7 @@ public class PizzaOrderDto {
         this.sizeId = sizeId;
     }
 
-    public Integer getCunt() {
+    public Integer getCount() {
         return count;
     }
 

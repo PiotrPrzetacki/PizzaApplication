@@ -47,4 +47,44 @@ public class OrderEntity {
 
     @OneToMany(mappedBy = "order")
     private Set<OrderSizeEntity> orderSizes;
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public void setClientAddress(String clientAddress) {
+        this.clientAddress = clientAddress;
+    }
+
+    public void setClientPhone(String clientPhone) {
+        this.clientPhone = clientPhone;
+    }
+
+    public void setFloor(Integer floor) {
+        this.floor = floor;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getToken() {
+        return token;
+    }
 }
