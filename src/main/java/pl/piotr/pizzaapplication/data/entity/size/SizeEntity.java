@@ -19,7 +19,7 @@ public class SizeEntity {
     @Column(name = "size_type")
     private String sizeType;
 
-    @Column(name = "size_base")
+    @Column(name = "price_base")
     private BigDecimal priceBase;
 
     @Column(name = "pizza_id")
